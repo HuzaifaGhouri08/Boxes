@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Input Value Boxes</title>
+</head>
+<body>
+  <label for="input">Enter a number:</label>
+  <input type="number" id="input">
+  <button onclick="createBoxes()">Create Boxes</button>
+
+  <div id="box-container"></div>
+
+  <script>
+    function createBoxes() {
+      // Get the user input value
+      let num = document.getElementById('input').value;
+
+      // Check if the input value is valid
+      if (num < 1 || isNaN(num)) {
+        alert('Please enter a number between 1 and 10');
+        return;
+      }
+
+      // Clear any existing boxes
+      let container = document.getElementById('box-container');
+      container.innerHTML = '';
+
+      // Create new boxes
+      for (let i = 0; i < num; i++) {
+        let box = document.createElement('div');
+        box.classList.add('box');
+        container.appendChild(box);
+      }
+    }
+  </script>
+
+  <style>
+    .box {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      background-color: blue;
+      margin: 10px;
+    }
+  </style>
+</body>
+</html>
